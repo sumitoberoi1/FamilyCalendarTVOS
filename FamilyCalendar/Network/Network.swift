@@ -18,13 +18,25 @@ struct Network {
 
 
 extension Network {
-    func registerUserWithEmail(_ email:String, password:String, isAdult:Bool, completion:@escaping (DataResponse<Any>) -> ()) {
+    func registerUserWithEmail(_ email:String, password:String, isAdult:Bool, completion:@escaping (User?) -> Void) {
         guard let url = URL(string: "\(baseURL)/\(userPath)/\(registerPath)") else {return}
         Alamofire.request(url,
-                          method: .post)
+                          method: .post,
+                          parameters: ["isAdult":isAdult,"email":email, "password":password],
+                          encoding: JSONEncoding.default,
+                          headers: nil)
             .responseJSON { response in
-                completion(response)
+                guard response.result.isSuccess else {
+                    completion(nil)
+                    return
+                }
+                guard let userJSON = response.value as? [String: Any],
+                    let userDict = userJSON["user"] as? [String:Any],
+                    let uid = userDict["uid"] as? String,
+                    let email = userDict["email"] as? String,
+                    let color = userDict["color"] as? String,
+                    let isAdult = userDict["isAdult"] as? Bool else{return}
+                completion(User(withemail: email, isAdult: isAdult, uid: uid, colorString: color))
         }
-
     }
 }

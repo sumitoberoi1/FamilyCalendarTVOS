@@ -79,7 +79,7 @@ extension CalendarVC:UICollectionViewDataSource {
 
 extension CalendarVC:UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200.0, height: 200.0)
+        return CGSize(width: 230.0, height: 180.0)
     }
 }
 
