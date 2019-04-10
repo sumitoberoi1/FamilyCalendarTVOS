@@ -7,16 +7,17 @@
 //
 
 import Foundation
-
+import SwiftDate
 
 struct MyCalendar {
     let todayDate = Date()
     public func getDatesForMonth(_ date:Date) -> [Date] {
         let calendar = Calendar.current
+        print(TimeZone.current)
         var allDates = [Date]()
         guard let totalDays = calendar.range(of: .day, in: .month, for: date) else {return allDates}
         for i in totalDays {
-            let dateComponents = DateComponents(calendar: calendar,year: calendar.component(.year, from: date), month:  calendar.component(.month, from: date), day: i)
+            let dateComponents = DateComponents(calendar: calendar, timeZone: TimeZone.current, year: calendar.component(.year, from: date), month:  calendar.component(.month, from: date), day: i)
             if let curdate = calendar.date(from: dateComponents) {
                 allDates.append(curdate)
             }

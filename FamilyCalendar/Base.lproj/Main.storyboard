@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="14490.70" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="14490.70" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rTN-qw-zGT">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
@@ -119,6 +119,118 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BbL-se-hvU" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1320" y="160"/>
+        </scene>
+        <!--CalendarVC-->
+        <scene sceneID="7MN-Li-K9m">
+            <objects>
+                <viewController storyboardIdentifier="CalendarVC" automaticallyAdjustsScrollViewInsets="NO" id="rTN-qw-zGT" customClass="CalendarVC" customModule="FamilyCalendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Brr-ff-0P6"/>
+                        <viewControllerLayoutGuide type="bottom" id="sum-Xc-tp2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Y1n-ay-yrN">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="two-gD-mE7">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" sectionInsetReference="safeArea" id="vyb-kE-fuS">
+                                    <size key="itemSize" width="293" height="310"/>
+                                    <size key="headerReferenceSize" width="50" height="104"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCell" id="slf-AX-F25" customClass="CalendarCell" customModule="FamilyCalendar" customModuleProvider="target">
+                                        <rect key="frame" x="90" y="104" width="293" height="310"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="293" height="310"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tu-6S-NAh">
+                                                    <rect key="frame" x="221" y="20" width="52" height="55"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="46"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="1tu-6S-NAh" firstAttribute="top" secondItem="slf-AX-F25" secondAttribute="top" constant="20" id="KTv-RW-nR0"/>
+                                            <constraint firstAttribute="trailing" secondItem="1tu-6S-NAh" secondAttribute="trailing" constant="20" id="aky-qs-CAB"/>
+                                            <constraint firstItem="1tu-6S-NAh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="slf-AX-F25" secondAttribute="leading" symbolic="YES" id="jrF-vj-sAh"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="1tu-6S-NAh" id="rss-F2-8Cc"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="CalendarHeader" id="bY5-UK-6su" customClass="CalendarHeader" customModule="FamilyCalendar" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="1920" height="104"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="64e-vF-uNV">
+                                            <rect key="frame" x="8" y="8" width="1904" height="88"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8u7-Cr-1Dg">
+                                                    <rect key="frame" x="0.0" y="1" width="635" height="86"/>
+                                                    <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                    <state key="normal" title="Prev Month"/>
+                                                    <connections>
+                                                        <action selector="prevMonthButtonTapped:" destination="bY5-UK-6su" eventType="primaryActionTriggered" id="ngN-K2-o5T"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bp9-0N-sem">
+                                                    <rect key="frame" x="635" y="21" width="634" height="46"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XM2-T5-EZB">
+                                                    <rect key="frame" x="1269" y="1" width="635" height="86"/>
+                                                    <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                    <state key="normal" title="Next Month"/>
+                                                    <connections>
+                                                        <action selector="nextMonthTapped:" destination="bY5-UK-6su" eventType="primaryActionTriggered" id="DIN-bj-T4F"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="64e-vF-uNV" secondAttribute="trailing" id="0Qt-tG-F1q"/>
+                                        <constraint firstItem="64e-vF-uNV" firstAttribute="top" secondItem="bY5-UK-6su" secondAttribute="topMargin" id="GRq-w9-ceU"/>
+                                        <constraint firstItem="64e-vF-uNV" firstAttribute="leading" secondItem="bY5-UK-6su" secondAttribute="leadingMargin" id="Ywk-er-SiC"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="64e-vF-uNV" secondAttribute="bottom" id="pB2-Dc-pi3"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="monthLabel" destination="bp9-0N-sem" id="1pH-Gr-Fu7"/>
+                                    </connections>
+                                </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="rTN-qw-zGT" id="oFT-6Q-9Wu"/>
+                                    <outlet property="delegate" destination="rTN-qw-zGT" id="uNQ-NA-oQQ"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="two-gD-mE7" firstAttribute="top" secondItem="Y1n-ay-yrN" secondAttribute="top" id="DHr-u6-fmo"/>
+                            <constraint firstItem="two-gD-mE7" firstAttribute="leading" secondItem="Y1n-ay-yrN" secondAttribute="leading" id="Yzu-gX-cdZ"/>
+                            <constraint firstAttribute="trailing" secondItem="two-gD-mE7" secondAttribute="trailing" id="ZPE-PQ-NDi"/>
+                            <constraint firstAttribute="bottom" secondItem="two-gD-mE7" secondAttribute="bottom" id="gTG-Zj-ob4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Wep-Ex-6j4"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="two-gD-mE7" id="Rov-A2-XUf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h8G-Km-laZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3335" y="154"/>
         </scene>
     </scenes>
 </document>
