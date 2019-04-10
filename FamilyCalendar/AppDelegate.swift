@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        //Network.shared.registerUserWithEmail("sumit.ob@fn.com", password: "dvd", isAdult: false, completion: <#T##<<error type>>#>)
+        print(MyCalendar().getDatesForMonth(Date()))
         return true
     }
 

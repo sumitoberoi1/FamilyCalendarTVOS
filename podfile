@@ -3,4 +3,5 @@ platform :tvos, '12.0'
 target 'FamilyCalendar' do  
   use_frameworks!
   pod 'Alamofire'
+  pod 'SwiftDate'
 end
