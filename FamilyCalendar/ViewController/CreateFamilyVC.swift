@@ -22,9 +22,12 @@ class CreateFamilyVC: UIViewController {
 
 extension CreateFamilyVC {
     @IBAction func createFamilyButtonTapped(_ sender: UIButton) {
-        Network.shared.createFamilyWithName(familyNameTextfield.text ?? "", uniqueCode: uniqueFamilyCodeTextField.text ?? "") { (family) in
-            let calendarVC = self.storyboard?.instantiateViewController(withIdentifier: "CalendarVC") as! CalendarVC
-            self.navigationController?.pushViewController(calendarVC, animated: true)
+        Network.shared.createFamilyWithName(familyNameTextfield.text ?? "", uniqueCode: uniqueFamilyCodeTextField.text ?? "") { (user) in
+            if let user = user {
+                let calendarVC = self.storyboard?.instantiateViewController(withIdentifier: "CalendarVC") as! CalendarVC
+                calendarVC.user = user
+                self.navigationController?.pushViewController(calendarVC, animated: true)
+            }
         }
     }
 }
