@@ -11,11 +11,7 @@ import SwiftDate
 
 class CalendarVC: UIViewController {
     
-    @IBOutlet weak var collectionView: UICollectionView! {
-        didSet {
-            collectionView!.remembersLastFocusedIndexPath = false
-        }
-    }
+    @IBOutlet weak var collectionView: UICollectionView! 
     var user:User?
     var cellSize: CGSize {
         get {
