@@ -20,6 +20,14 @@
 		19B72DFD225E3E73006CEC10 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B72DFC225E3E73006CEC10 /* CalendarCell.swift */; };
 		19B72DFF225E542C006CEC10 /* CalendarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B72DFE225E542C006CEC10 /* CalendarHeader.swift */; };
 		19B72E02225E9D7B006CEC10 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B72E01225E9D7B006CEC10 /* UIColorExtension.swift */; };
+		19B72E04225EC955006CEC10 /* JoinFamilyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B72E03225EC955006CEC10 /* JoinFamilyVC.swift */; };
+		19B72E06225EFDAE006CEC10 /* CreateFamilyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B72E05225EFDAE006CEC10 /* CreateFamilyVC.swift */; };
+		19B72E08225EFF55006CEC10 /* CreateTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B72E07225EFF55006CEC10 /* CreateTaskVC.swift */; };
+		19B72E0A225F02A7006CEC10 /* TaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B72E09225F02A7006CEC10 /* TaskVC.swift */; };
+		19B72E0C225F048D006CEC10 /* MyProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B72E0B225F048D006CEC10 /* MyProfileVC.swift */; };
+		19B72E0E2260640A006CEC10 /* Family.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B72E0D2260640A006CEC10 /* Family.swift */; };
+		19B72E1022607F49006CEC10 /* FamilyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B72E0F22607F49006CEC10 /* FamilyVC.swift */; };
+		19B72E1222612415006CEC10 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B72E1122612415006CEC10 /* SplashVC.swift */; };
 		F161CCFE57E35431376F6245 /* Pods_FamilyCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 746ED7D123E5B48882052FEA /* Pods_FamilyCalendar.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +47,14 @@
 		19B72DFC225E3E73006CEC10 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		19B72DFE225E542C006CEC10 /* CalendarHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeader.swift; sourceTree = "<group>"; };
 		19B72E01225E9D7B006CEC10 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		19B72E03225EC955006CEC10 /* JoinFamilyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinFamilyVC.swift; sourceTree = "<group>"; };
+		19B72E05225EFDAE006CEC10 /* CreateFamilyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFamilyVC.swift; sourceTree = "<group>"; };
+		19B72E07225EFF55006CEC10 /* CreateTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskVC.swift; sourceTree = "<group>"; };
+		19B72E09225F02A7006CEC10 /* TaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskVC.swift; sourceTree = "<group>"; };
+		19B72E0B225F048D006CEC10 /* MyProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileVC.swift; sourceTree = "<group>"; };
+		19B72E0D2260640A006CEC10 /* Family.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Family.swift; sourceTree = "<group>"; };
+		19B72E0F22607F49006CEC10 /* FamilyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyVC.swift; sourceTree = "<group>"; };
+		19B72E1122612415006CEC10 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		35EC2BED685A8FAB8DE6C807 /* Pods-FamilyCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyCalendar.release.xcconfig"; path = "Target Support Files/Pods-FamilyCalendar/Pods-FamilyCalendar.release.xcconfig"; sourceTree = "<group>"; };
 		746ED7D123E5B48882052FEA /* Pods_FamilyCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FamilyCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6411742EE33935A5C4CE8BC /* Pods-FamilyCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyCalendar.debug.xcconfig"; path = "Target Support Files/Pods-FamilyCalendar/Pods-FamilyCalendar.debug.xcconfig"; sourceTree = "<group>"; };
@@ -60,8 +76,15 @@
 			isa = PBXGroup;
 			children = (
 				191746ED225476F500D293DA /* RegisterVC.swift */,
+				19B72E03225EC955006CEC10 /* JoinFamilyVC.swift */,
 				19B72DF9225E3E21006CEC10 /* CalendarVC.swift */,
+				19B72E0B225F048D006CEC10 /* MyProfileVC.swift */,
 				191746EF225477AC00D293DA /* LoginVC.swift */,
+				19B72E1122612415006CEC10 /* SplashVC.swift */,
+				19B72E05225EFDAE006CEC10 /* CreateFamilyVC.swift */,
+				19B72E07225EFF55006CEC10 /* CreateTaskVC.swift */,
+				19B72E09225F02A7006CEC10 /* TaskVC.swift */,
+				19B72E0F22607F49006CEC10 /* FamilyVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -113,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				19B72DF5225DB6F0006CEC10 /* User.swift */,
+				19B72E0D2260640A006CEC10 /* Family.swift */,
 				19B72DF7225E2470006CEC10 /* Calendar.swift */,
 			);
 			path = Model;
@@ -274,16 +298,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				19B72DF2225DB3D1006CEC10 /* Network.swift in Sources */,
+				19B72E0E2260640A006CEC10 /* Family.swift in Sources */,
 				191746EE225476F500D293DA /* RegisterVC.swift in Sources */,
 				19B72DF6225DB6F0006CEC10 /* User.swift in Sources */,
+				19B72E0A225F02A7006CEC10 /* TaskVC.swift in Sources */,
 				19AE823122542B11006CAC8D /* ViewController.swift in Sources */,
+				19B72E1022607F49006CEC10 /* FamilyVC.swift in Sources */,
+				19B72E1222612415006CEC10 /* SplashVC.swift in Sources */,
+				19B72E04225EC955006CEC10 /* JoinFamilyVC.swift in Sources */,
 				19B72DFF225E542C006CEC10 /* CalendarHeader.swift in Sources */,
 				19B72DFD225E3E73006CEC10 /* CalendarCell.swift in Sources */,
 				191746F0225477AC00D293DA /* LoginVC.swift in Sources */,
 				19AE822F22542B11006CAC8D /* AppDelegate.swift in Sources */,
 				19B72E02225E9D7B006CEC10 /* UIColorExtension.swift in Sources */,
 				19B72DFA225E3E21006CEC10 /* CalendarVC.swift in Sources */,
+				19B72E0C225F048D006CEC10 /* MyProfileVC.swift in Sources */,
 				19B72DF8225E2470006CEC10 /* Calendar.swift in Sources */,
+				19B72E06225EFDAE006CEC10 /* CreateFamilyVC.swift in Sources */,
+				19B72E08225EFF55006CEC10 /* CreateTaskVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,7 +454,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 985WCWGJY4;
 				INFOPLIST_FILE = FamilyCalendar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -442,7 +474,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 985WCWGJY4;
 				INFOPLIST_FILE = FamilyCalendar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

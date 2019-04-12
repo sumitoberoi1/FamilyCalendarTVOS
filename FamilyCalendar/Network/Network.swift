@@ -12,8 +12,15 @@ import Alamofire
 struct Network {
     let baseURL = "http://localhost:3001"
     let userPath = "user"
+    let familyPath = "family"
     let registerPath = "register"
+    let join = "join"
     static let shared = Network()
+    var uid:String? {
+        get {
+            return UserDefaults.standard.string(forKey: "uid")
+        }
+    }
 }
 
 
@@ -24,19 +31,68 @@ extension Network {
                           method: .post,
                           parameters: ["isAdult":isAdult,"email":email, "password":password],
                           encoding: JSONEncoding.default,
-                          headers: nil)
+                          headers: nil).validate(statusCode: 200..<300)
             .responseJSON { response in
                 guard response.result.isSuccess else {
                     completion(nil)
                     return
                 }
-                guard let userJSON = response.value as? [String: Any],
-                    let userDict = userJSON["user"] as? [String:Any],
-                    let uid = userDict["uid"] as? String,
-                    let email = userDict["email"] as? String,
-                    let color = userDict["color"] as? String,
-                    let isAdult = userDict["isAdult"] as? Bool else{return}
-                completion(User(withemail: email, isAdult: isAdult, uid: uid, colorString: color))
+                guard let userDict = response.value as? [String: Any] else {return}
+                completion(User(userDict: userDict))
+        }
+    }
+    
+    func createFamilyWithName(_ name:String,uniqueCode:String, completion:@escaping (User?) -> Void) {
+        guard let url = URL(string: "\(baseURL)/\(familyPath)") else {return}
+        guard let uid = uid else {return}
+        Alamofire.request(url,
+                          method: .post,
+                          parameters: ["name":name,"code":uniqueCode,"uid":uid],
+                          encoding: JSONEncoding.default,
+                          headers: nil).validate(statusCode: 200..<300)
+            .responseJSON { response in
+                guard response.result.isSuccess else {
+                    completion(nil)
+                    return
+                }
+                guard let userDict = response.value as? [String: Any] else {return}
+                completion(User(userDict: userDict))
+        }
+    }
+    
+    func getUser(_ completion:@escaping (User?) -> Void) {
+        guard let uid = uid else {return}
+        guard let url = URL(string: "\(baseURL)/\(userPath)/\(uid)") else {return}
+    
+        Alamofire.request(url,
+                          method: .get,
+                          headers: nil).validate(statusCode: 200..<300)
+            .responseJSON { response in
+                guard response.result.isSuccess else {
+                    completion(nil)
+                    return
+                }
+                guard let userDict = response.value as? [String: Any] else {return}
+                completion(User(userDict: userDict))
+        }
+    }
+    
+    
+    func joinFamilyWithCode(_ code:String, completion:@escaping (User?) -> Void) {
+        guard let url = URL(string: "\(baseURL)/\(familyPath)/\(join)") else {return}
+        guard let uid = uid else {return}
+        Alamofire.request(url,
+                          method: .post,
+                          parameters: ["code":code,"uid":uid],
+                          encoding: JSONEncoding.default,
+                          headers: nil).validate(statusCode: 200..<300)
+            .responseJSON { response in
+                guard response.result.isSuccess else {
+                    completion(nil)
+                    return
+                }
+                guard let userDict = response.value as? [String: Any] else {return}
+                completion(User(userDict: userDict))
         }
     }
 }

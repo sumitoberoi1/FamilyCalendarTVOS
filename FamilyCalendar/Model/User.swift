@@ -12,11 +12,21 @@ class User {
     let email:String
     let isAdult:Bool
     let uid:String
-    let color:UIColor
-    init(withemail mail:String,isAdult adult:Bool, uid:String, colorString:String) {
-        self.email = mail
-        self.isAdult = adult
-        self.uid = uid
-        self.color = UIColor(hex:colorString) ?? UIColor.blue
+    var family:Family?
+    var color:UIColor {
+        get {
+            return UIColor(hex:colorString) ?? UIColor.blue
+        }
     }
+    let colorString:String
+    init(userDict:[String:Any]) {
+        uid = userDict["uid"] as? String ?? ""
+        email = userDict["email"] as? String ?? ""
+        colorString = userDict["color"] as? String ?? ""
+        isAdult = userDict["isAdult"] as? Bool ?? true
+        if let familyDict = userDict["family"] as? [String:Any] {
+            family = Family(familyDict: familyDict)
+        }
+    }
+    
 }
