@@ -52,8 +52,9 @@ class SplashVC: UIViewController {
     }
     
     func pushToCalendarForUser(_ user:User) {
-        let calendarVC = self.storyboard?.instantiateViewController(withIdentifier: "CalendarVC") as! CalendarVC
-        calendarVC.user = user
-        UIApplication.shared.keyWindow?.rootViewController = calendarVC
+        let calendarNavVC = self.storyboard?.instantiateViewController(withIdentifier: "CalendarNav") as! UINavigationController
+        let calendarVC = calendarNavVC.topViewController as? CalendarVC
+        calendarVC?.user = user
+        UIApplication.shared.keyWindow?.rootViewController = calendarNavVC
     }
 }

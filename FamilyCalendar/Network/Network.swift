@@ -77,6 +77,10 @@ extension Network {
         }
     }
     
+    func createTask(_ completion:@escaping (User?) -> Void) {
+        
+    }
+    
     
     func joinFamilyWithCode(_ code:String, completion:@escaping (User?) -> Void) {
         guard let url = URL(string: "\(baseURL)/\(familyPath)/\(join)") else {return}

@@ -23,12 +23,16 @@ class JoinFamilyVC: UIViewController {
 
 extension JoinFamilyVC {
     @IBAction func joinFamilyTapped(_ sender: UIButton) {
-        Network.shared.joinFamilyWithCode(uniqueTextField.text ?? "") { (user) in
+        Network.shared.joinFamilyWithCode(uniqueTextField.text ?? "") {[unowned self] (user) in
             if let user = user {
-                let calendarVC = self.storyboard?.instantiateViewController(withIdentifier: "CalendarVC") as! CalendarVC
-                calendarVC.user = user
-                self.navigationController?.pushViewController(calendarVC, animated: true)
+               self.pushToCalendarForUser(user)
             }
         }
+    }
+    func pushToCalendarForUser(_ user:User) {
+        let calendarNavVC = self.storyboard?.instantiateViewController(withIdentifier: "CalendarNav") as! UINavigationController
+        let calendarVC = calendarNavVC.topViewController as? CalendarVC
+        calendarVC?.user = user
+        UIApplication.shared.keyWindow?.rootViewController = calendarNavVC
     }
 }

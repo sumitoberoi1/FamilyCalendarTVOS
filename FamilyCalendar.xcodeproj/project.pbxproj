@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		191746EE225476F500D293DA /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191746ED225476F500D293DA /* RegisterVC.swift */; };
 		191746F0225477AC00D293DA /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191746EF225477AC00D293DA /* LoginVC.swift */; };
+		196E531222624B8D00EAE120 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196E531122624B8D00EAE120 /* Task.swift */; };
 		19AE822F22542B11006CAC8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE822E22542B11006CAC8D /* AppDelegate.swift */; };
 		19AE823122542B11006CAC8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE823022542B11006CAC8D /* ViewController.swift */; };
 		19AE823422542B11006CAC8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19AE823222542B11006CAC8D /* Main.storyboard */; };
@@ -28,12 +29,16 @@
 		19B72E0E2260640A006CEC10 /* Family.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B72E0D2260640A006CEC10 /* Family.swift */; };
 		19B72E1022607F49006CEC10 /* FamilyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B72E0F22607F49006CEC10 /* FamilyVC.swift */; };
 		19B72E1222612415006CEC10 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B72E1122612415006CEC10 /* SplashVC.swift */; };
+		19B72E1422614E2D006CEC10 /* FamilyMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B72E1322614E2D006CEC10 /* FamilyMemberCell.swift */; };
+		19B72E1622615DF7006CEC10 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B72E1522615DF7006CEC10 /* ViewExtensions.swift */; };
+		19B72E1822619A3A006CEC10 /* MemberDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B72E1722619A3A006CEC10 /* MemberDetailVC.swift */; };
 		F161CCFE57E35431376F6245 /* Pods_FamilyCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 746ED7D123E5B48882052FEA /* Pods_FamilyCalendar.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		191746ED225476F500D293DA /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		191746EF225477AC00D293DA /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		196E531122624B8D00EAE120 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		19AE822B22542B11006CAC8D /* FamilyCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FamilyCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19AE822E22542B11006CAC8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19AE823022542B11006CAC8D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +60,9 @@
 		19B72E0D2260640A006CEC10 /* Family.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Family.swift; sourceTree = "<group>"; };
 		19B72E0F22607F49006CEC10 /* FamilyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyVC.swift; sourceTree = "<group>"; };
 		19B72E1122612415006CEC10 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
+		19B72E1322614E2D006CEC10 /* FamilyMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyMemberCell.swift; sourceTree = "<group>"; };
+		19B72E1522615DF7006CEC10 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		19B72E1722619A3A006CEC10 /* MemberDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDetailVC.swift; sourceTree = "<group>"; };
 		35EC2BED685A8FAB8DE6C807 /* Pods-FamilyCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyCalendar.release.xcconfig"; path = "Target Support Files/Pods-FamilyCalendar/Pods-FamilyCalendar.release.xcconfig"; sourceTree = "<group>"; };
 		746ED7D123E5B48882052FEA /* Pods_FamilyCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FamilyCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6411742EE33935A5C4CE8BC /* Pods-FamilyCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FamilyCalendar.debug.xcconfig"; path = "Target Support Files/Pods-FamilyCalendar/Pods-FamilyCalendar.debug.xcconfig"; sourceTree = "<group>"; };
@@ -76,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				191746ED225476F500D293DA /* RegisterVC.swift */,
+				19B72E1722619A3A006CEC10 /* MemberDetailVC.swift */,
 				19B72E03225EC955006CEC10 /* JoinFamilyVC.swift */,
 				19B72DF9225E3E21006CEC10 /* CalendarVC.swift */,
 				19B72E0B225F048D006CEC10 /* MyProfileVC.swift */,
@@ -137,6 +146,7 @@
 			children = (
 				19B72DF5225DB6F0006CEC10 /* User.swift */,
 				19B72E0D2260640A006CEC10 /* Family.swift */,
+				196E531122624B8D00EAE120 /* Task.swift */,
 				19B72DF7225E2470006CEC10 /* Calendar.swift */,
 			);
 			path = Model;
@@ -146,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				19B72DFC225E3E73006CEC10 /* CalendarCell.swift */,
+				19B72E1322614E2D006CEC10 /* FamilyMemberCell.swift */,
 				19B72DFE225E542C006CEC10 /* CalendarHeader.swift */,
 			);
 			path = Views;
@@ -155,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				19B72E01225E9D7B006CEC10 /* UIColorExtension.swift */,
+				19B72E1522615DF7006CEC10 /* ViewExtensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -298,8 +310,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				19B72DF2225DB3D1006CEC10 /* Network.swift in Sources */,
+				19B72E1622615DF7006CEC10 /* ViewExtensions.swift in Sources */,
 				19B72E0E2260640A006CEC10 /* Family.swift in Sources */,
+				19B72E1822619A3A006CEC10 /* MemberDetailVC.swift in Sources */,
+				196E531222624B8D00EAE120 /* Task.swift in Sources */,
 				191746EE225476F500D293DA /* RegisterVC.swift in Sources */,
+				19B72E1422614E2D006CEC10 /* FamilyMemberCell.swift in Sources */,
 				19B72DF6225DB6F0006CEC10 /* User.swift in Sources */,
 				19B72E0A225F02A7006CEC10 /* TaskVC.swift in Sources */,
 				19AE823122542B11006CAC8D /* ViewController.swift in Sources */,

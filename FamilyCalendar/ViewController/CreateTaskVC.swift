@@ -9,22 +9,28 @@
 import UIKit
 
 class CreateTaskVC: UIViewController {
-
+    @IBOutlet weak var taskNameField: UITextField!
+    @IBOutlet weak var taskDescriptionTextField: UITextField!
+    @IBOutlet weak var childSafeSegment: UISegmentedControl!
+    @IBOutlet weak var textLocationTextField: UITextField!
+    
+    var user:User?
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+    
+}
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+//MARK: IBActions
+private extension CreateTaskVC {
+    @IBAction func chooseTaskDateTapped(_ sender:UIButton) {
+        
     }
-    */
+    @IBAction func createTaskTapped(_ sender:UIButton) {
+        
+    }
+}
 
+private extension CreateTaskVC {
+    
 }

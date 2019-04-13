@@ -11,24 +11,9 @@ import SwiftDate
 
 class CalendarVC: UIViewController {
     
-    @IBOutlet weak var collectionView: UICollectionView! 
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var familyNameLabel: UILabel!
     var user:User?
-    var cellSize: CGSize {
-        get {
-            if let collectionView = collectionView {
-                let window = UIApplication.shared.keyWindow
-                let safeAreapTop = window?.safeAreaInsets.top ?? 0.0
-                let safeAreaBottom = window?.safeAreaInsets.bottom ?? 0.0
-                let safeAreaLeft = window?.safeAreaInsets.left ?? 0.0
-                let safeAreaRight = window?.safeAreaInsets.right ?? 0.0
-                
-                return CGSize(width: (collectionView.bounds.width-safeAreaLeft+safeAreaRight)/7.0, height: (collectionView.bounds.height-safeAreapTop+safeAreaBottom)/5.0)
-            } else {
-                return CGSize(width: 0.0, height: 0.0)
-            }
-        }
-    }
-    
     let mycalendar = MyCalendar()
     var activeDate = Date() {
         didSet {
@@ -42,12 +27,39 @@ class CalendarVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        configUI()
     }
     
 }
 
+//MARk: UI methods
+private extension CalendarVC {
+    func configUI() {
+        setLabels()
+    }
+    
+    private func setLabels() {
+        self.familyNameLabel.text = user?.family?.name ?? ""
+    }
+}
+
+
+//MARK: IBactions
+
+private extension CalendarVC {
+    @IBAction func viewFamilyMemberTapped(_ sender: UIButton) {
+        let familyVC = storyboard?.instantiateViewController(withIdentifier: "FamilyVC") as! FamilyVC
+        familyVC.family = user?.family
+        navigationController?.pushViewController(familyVC, animated: true)
+    }
+    
+    @IBAction func addTaskTapped(_ sender: UIButton) {
+        let createTaskVC = storyboard?.instantiateViewController(withIdentifier: "CreateTaskVC") as! CreateTaskVC
+        createTaskVC.user = user
+        navigationController?.pushViewController(createTaskVC, animated: true)
+    }
+    
+}
 extension CalendarVC:UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dateArray.count
@@ -72,11 +84,24 @@ extension CalendarVC:UICollectionViewDataSource {
             assert(false,"Invalid element type")
         }
     }
+    func collectionView(_ collectionView: UICollectionView, didUpdateFocusIn context: UICollectionViewFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        if context.nextFocusedView != nil {
+            coordinator.addCoordinatedAnimations({
+                context.nextFocusedView?.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            }, completion: nil)
+           
+        }
+        if context.previouslyFocusedView != nil {
+            coordinator.addCoordinatedAnimations({
+                context.previouslyFocusedView?.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            }, completion: nil)
+        }
+    }
 }
 
 extension CalendarVC:UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200.0, height: 100.0)
+        return CGSize(width: 200.0, height: 165.0)
     }
 }
 
