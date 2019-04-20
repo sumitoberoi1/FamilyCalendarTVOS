@@ -8,7 +8,7 @@
 
 import Foundation
 import Alamofire
-
+import SVProgressHUD
 struct Network {
     let baseURL = "http://localhost:3001"
     let userPath = "user"
@@ -23,9 +23,9 @@ struct Network {
     }
 }
 
-
 extension Network {
     func registerUserWithEmail(_ email:String, password:String, isAdult:Bool, completion:@escaping (User?) -> Void) {
+        SVProgressHUD.show()
         guard let url = URL(string: "\(baseURL)/\(userPath)/\(registerPath)") else {return}
         Alamofire.request(url,
                           method: .post,
@@ -33,6 +33,7 @@ extension Network {
                           encoding: JSONEncoding.default,
                           headers: nil).validate(statusCode: 200..<300)
             .responseJSON { response in
+                SVProgressHUD.dismiss()
                 guard response.result.isSuccess else {
                     completion(nil)
                     return
@@ -45,12 +46,14 @@ extension Network {
     func createFamilyWithName(_ name:String,uniqueCode:String, completion:@escaping (User?) -> Void) {
         guard let url = URL(string: "\(baseURL)/\(familyPath)") else {return}
         guard let uid = uid else {return}
+        SVProgressHUD.show()
         Alamofire.request(url,
                           method: .post,
                           parameters: ["name":name,"code":uniqueCode,"uid":uid],
                           encoding: JSONEncoding.default,
                           headers: nil).validate(statusCode: 200..<300)
             .responseJSON { response in
+                SVProgressHUD.dismiss()
                 guard response.result.isSuccess else {
                     completion(nil)
                     return
@@ -63,11 +66,12 @@ extension Network {
     func getUser(_ completion:@escaping (User?) -> Void) {
         guard let uid = uid else {return}
         guard let url = URL(string: "\(baseURL)/\(userPath)/\(uid)") else {return}
-    
+        SVProgressHUD.show()
         Alamofire.request(url,
                           method: .get,
                           headers: nil).validate(statusCode: 200..<300)
             .responseJSON { response in
+                SVProgressHUD.dismiss()
                 guard response.result.isSuccess else {
                     completion(nil)
                     return
@@ -85,12 +89,14 @@ extension Network {
     func joinFamilyWithCode(_ code:String, completion:@escaping (User?) -> Void) {
         guard let url = URL(string: "\(baseURL)/\(familyPath)/\(join)") else {return}
         guard let uid = uid else {return}
+        SVProgressHUD.show()
         Alamofire.request(url,
                           method: .post,
                           parameters: ["code":code,"uid":uid],
                           encoding: JSONEncoding.default,
                           headers: nil).validate(statusCode: 200..<300)
             .responseJSON { response in
+                SVProgressHUD.dismiss()
                 guard response.result.isSuccess else {
                     completion(nil)
                     return

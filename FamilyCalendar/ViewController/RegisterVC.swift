@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class RegisterVC: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -26,10 +27,12 @@ extension RegisterVC {
         Network.shared.registerUserWithEmail(emailTextField.text ?? "",
                                              password: passwordTextField.text ?? "",
                                              isAdult: isAdult) { (user) in
-                                                defaults.set(user?.uid, forKey: "uid")
-                                                let joinFamilyNav = self.storyboard?.instantiateViewController(withIdentifier: "JoinFamilyNav") as! UINavigationController
-                                                (joinFamilyNav.topViewController as? JoinFamilyVC)?.user = user
-                                               UIApplication.shared.keyWindow?.rootViewController = joinFamilyNav
+                                                if let user = user {
+                                                    defaults.set(user.uid, forKey: "uid")
+                                                    let joinFamilyNav = self.storyboard?.instantiateViewController(withIdentifier: "JoinFamilyNav") as! UINavigationController
+                                                    (joinFamilyNav.topViewController as? JoinFamilyVC)?.user = user
+                                                   UIApplication.shared.keyWindow?.rootViewController = joinFamilyNav
+                                                }
         }
     }
 }
